@@ -12,7 +12,7 @@ This is a Java-based task management application built with Maven, using Java 17
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/yourusername/task-app.git
+git clone https://github.com/giannisPlymmenos/task-app.git
 cd task-app
 ```
 - Set Up MySQL Database
