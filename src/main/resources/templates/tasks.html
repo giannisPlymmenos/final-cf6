@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="container">
+    <header>
+        <h1>Task Application</h1>
+
+        <h2 class="greeting">Welcome, <span th:text="${username}"></span></h2>
+    </header>
+
+    <section class="task-section">
+        <h2>All Tasks</h2>
+
+
+        <table class="task-table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="task : ${tasks}">
+                <tr>
+                    <td th:text="${task.title}"></td>
+                    <td th:text="${task.description}"></td>
+                    <td>
+                        <!-- Delete Button -->
+                        <form th:action="@{/tasks/delete/{id}(id=${task.id})}" method="post" style="display:inline;">
+                            <button type="submit" class="btn delete-btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </section>
+
+
+    <div class="action-buttons">
+        <a href="/tasks/add" class="btn add-btn">Add Task</a>
+        <a href="/logout" class="btn logout-btn">Logout</a>
+    </div>
+</div>
+
+</body>
+</html>

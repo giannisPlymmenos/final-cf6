@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        // Function to display error message
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'Error: Invalid credentials';
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!-- Login form container -->
+<div class="container">
+    <div class="login-box">
+        <h2>Login</h2>
+        <!-- Error message -->
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        <form action="/login" method="post" class="login-form">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn">Login</button>
+            </div>
+        </form>
+
+        <div class="register-link">
+            <a href="/register">Register</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
